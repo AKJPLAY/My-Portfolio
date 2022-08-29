@@ -1,0 +1,1082 @@
+@font-face {
+  font-family: "Nico Moji";
+  src: url("./fonts/NicoMoji-Regular.ttf");
+}
+@font-face {
+  font-family: "Salsa";
+  src: url("./fonts/Salsa-Regular.ttf");
+}
+body {
+  font-size: clamp(0px, 0.83vw, 16px);
+}
+
+img, svg {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Salsa";
+}
+*.pointer-none {
+  pointer-events: none;
+}
+
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-background {
+  -webkit-clip-path: polygon(0 0, 55% 0, 40% 100%, 0% 100%);
+          clip-path: polygon(0 0, 55% 0, 40% 100%, 0% 100%);
+  background-color: #F5B331;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.7s linear;
+}
+@media (orientation: portrait) {
+  .main-background {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 40%, 0 60%);
+            clip-path: polygon(0 0, 100% 0%, 100% 40%, 0 60%);
+  }
+}
+
+.orange .main-background {
+  -webkit-clip-path: polygon(0 0, 155% 0, 140% 100%, 0% 100%);
+          clip-path: polygon(0 0, 155% 0, 140% 100%, 0% 100%);
+}
+@media (orientation: portrait) {
+  .orange .main-background {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 140%, 0 155%);
+            clip-path: polygon(0 0, 100% 0%, 100% 140%, 0 155%);
+  }
+}
+
+.white .main-background {
+  -webkit-clip-path: polygon(0 0, -155% 0, -140% 100%, 0% 100%);
+          clip-path: polygon(0 0, -155% 0, -140% 100%, 0% 100%);
+}
+@media (orientation: portrait) {
+  .white .main-background {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% -140%, 0 -155%);
+            clip-path: polygon(0 0, 100% 0%, 100% -140%, 0 -155%);
+  }
+}
+
+.navigator-container {
+  font-size: 3.125em;
+  width: 1.5625em;
+  height: 1.5625em;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  top: 5px;
+}
+@media (orientation: portrait) {
+  .navigator-container {
+    font-size: 5.125em;
+  }
+}
+.navigator-container #navigator-bars {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  cursor: pointer;
+  display: block;
+  height: 0.125em;
+  transition: background 0.2s ease 0s, top 0.2s ease 0.2s, transform 0.2s ease 0;
+  box-shadow: 0.04em 0.04em 0.1em #000;
+  border-radius: 0.2em;
+}
+.navigator-container #navigator-bars::before, .navigator-container #navigator-bars::after {
+  background-color: #FFFFFF;
+  position: absolute;
+  content: "";
+  display: block;
+  height: 0.125em;
+  width: 1.25em;
+  border-radius: 0.2em;
+  box-shadow: 0.04em 0.04em 0.1em #000;
+}
+.navigator-container #navigator-toggler {
+  position: absolute;
+  visibility: hidden;
+}
+.navigator-container #navigator-toggler:not(:checked) + #navigator-bars {
+  background-color: #FFFFFF;
+  width: 1.25em;
+}
+.navigator-container #navigator-toggler:not(:checked) + #navigator-bars::before, .navigator-container #navigator-toggler:not(:checked) + #navigator-bars::after {
+  transition: top 0.2s ease 0.2s, transform 0.2s ease 0s;
+  border-radius: 0.2em;
+  box-shadow: 0.04em 0.04em 0.1em #000;
+}
+.navigator-container #navigator-toggler:not(:checked) + #navigator-bars::before {
+  top: -0.4375em;
+  transform: rotate(0);
+}
+.navigator-container #navigator-toggler:not(:checked) + #navigator-bars::after {
+  top: 0.4375em;
+  transform: rotate(0);
+}
+.navigator-container #navigator-toggler:checked + #navigator-bars {
+  background-color: transparent;
+  width: 1.25em;
+  box-shadow: none;
+}
+.navigator-container #navigator-toggler:checked + #navigator-bars::before, .navigator-container #navigator-toggler:checked + #navigator-bars::after {
+  top: 0px;
+  transition: top 0.2s ease 0s, transform 0.2s ease 0.2s;
+  box-shadow: 0.04em 0.04em 0.1em #000;
+}
+.navigator-container #navigator-toggler:checked + #navigator-bars::before {
+  transform: rotate(45deg);
+}
+.navigator-container #navigator-toggler:checked + #navigator-bars::after {
+  transform: rotate(-45deg);
+}
+
+.menu-opener {
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+.menu-opener .logo h2 {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 6.25em;
+  line-height: 95%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  text-shadow: 0.02em 0.02em 0.05em #000;
+}
+@media (orientation: portrait) {
+  .menu-opener .logo h2 {
+    font-size: 10.25em;
+    position: relative;
+    top: 0.15em;
+  }
+}
+
+.manu {
+  list-style: none;
+  margin-left: 6.25em;
+  margin-top: 3.125em;
+  pointer-events: none;
+}
+.manu.visible {
+  pointer-events: all;
+}
+.manu .menu-item {
+  padding: 0.1125em 0;
+  margin: 0.8325em 0;
+}
+.manu .menu-item .menu-item {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.75em;
+  line-height: 0.93333;
+  /* identical to box height, or 95% */
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF;
+  position: relative;
+  text-shadow: 0.03333em 0.03333em 0.0833333em #000;
+}
+@media (orientation: portrait) {
+  .manu .menu-item .menu-item {
+    font-size: 7.75em;
+  }
+}
+.manu .menu-item .menu-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  height: 0.06667em;
+  border-radius: 0.0833333em;
+  background-color: #FFFFFF;
+  margin: auto;
+  margin-bottom: 0.0933333em;
+  margin-left: 0px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0.03333em 0.03333em 0.0833333em #000;
+}
+.manu .menu-item .menu-item:hover::after {
+  width: 100%;
+}
+
+.address {
+  list-style: none;
+  margin-left: 6.25em;
+  margin-top: 1.875em;
+  pointer-events: none;
+}
+.address.visible {
+  pointer-events: all;
+}
+.address.visible {
+  visibility: visible;
+  opacity: 1;
+}
+.address .address-item .address-link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0.045454em 0.045454em 0.136364em #000;
+}
+@media (orientation: portrait) {
+  .address .address-item .address-link {
+    font-size: 4.375em;
+  }
+}
+
+.social {
+  margin-left: 6.25em;
+  margin-top: 0.625em;
+  pointer-events: none;
+}
+.social.visible {
+  pointer-events: all;
+}
+.social .social-item {
+  display: inline-block;
+}
+.social .social-item + .social-item {
+  margin-left: 0.625em;
+}
+.social .social-item .social-link {
+  display: flow-root;
+  width: 2.8125em;
+  height: 2.8125em;
+  box-shadow: 0.125em 0.125em 0.3125em #000;
+  border-radius: 0.625em;
+  overflow: hidden;
+}
+@media (orientation: portrait) {
+  .social .social-item .social-link {
+    width: 5.8125em;
+    height: 5.8125em;
+  }
+}
+.social .social-item .social-link svg {
+  width: 2.8125em;
+  height: 2.8125em;
+}
+@media (orientation: portrait) {
+  .social .social-item .social-link svg {
+    width: 5.8125em;
+    height: 5.8125em;
+  }
+}
+
+.header {
+  max-width: 120em;
+  margin: 0 auto;
+  padding: 0 2.5em;
+  position: relative;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+.header.set-max-height {
+  max-height: 6.5625em;
+}
+.header.hide {
+  top: -100px;
+  visibility: hidden;
+  opacity: 0;
+}
+.header .profile-image {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  max-width: 37.0625em;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-right: 0;
+  margin-bottom: 0;
+  z-index: -1;
+  top: -0.625em;
+  transition: all 0.5s ease 0.5s;
+}
+@media (orientation: portrait) {
+  .header .profile-image {
+    max-width: 80.0625em;
+  }
+}
+.header .profile-image.visible {
+  top: 0px;
+  opacity: 1;
+  visibility: visible;
+}
+.header .profile-image img {
+  max-width: 100%;
+}
+
+.downAnimation-1 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.04s;
+}
+.downAnimation-1.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.04s;
+}
+
+.downAnimation-2 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.08s;
+}
+.downAnimation-2.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.08s;
+}
+
+.downAnimation-3 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.12s;
+}
+.downAnimation-3.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.12s;
+}
+
+.downAnimation-4 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.16s;
+}
+.downAnimation-4.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.16s;
+}
+
+.downAnimation-5 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.2s;
+}
+.downAnimation-5.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.2s;
+}
+
+.downAnimation-6 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.24s;
+}
+.downAnimation-6.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.24s;
+}
+
+.downAnimation-7 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.28s;
+}
+.downAnimation-7.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.28s;
+}
+
+.downAnimation-8 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.32s;
+}
+.downAnimation-8.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.32s;
+}
+
+.downAnimation-9 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.36s;
+}
+.downAnimation-9.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.36s;
+}
+
+.downAnimation-10 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.4s;
+}
+.downAnimation-10.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.4s;
+}
+
+.downAnimation-11 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -0.625em;
+  transition: all 0.5s ease 0.44s;
+}
+.downAnimation-11.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.44s;
+}
+
+.front-view .container-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+@media (orientation: portrait) {
+  .front-view .container-inner {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+.front-view .container-inner .title {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.3125em;
+  line-height: 0.95027em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 0.02em #000;
+}
+@media (orientation: portrait) {
+  .front-view .container-inner .title {
+    font-size: 20.3125em;
+  }
+}
+.front-view .container-inner .left-side {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
+  position: relative;
+  top: 0;
+}
+.front-view .container-inner .left-side.hide {
+  top: -1.25em;
+  visibility: hidden;
+  opacity: 0;
+}
+.front-view .container-inner .left-side .inner-content .title {
+  text-align: left;
+  -webkit-text-stroke: 0.02em #fff;
+}
+.front-view .container-inner .left-side .inner-content .btn {
+  font-family: "Nico Moji";
+  border: 0.06383em solid #FFFFFF;
+  border-radius: 65px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.9375em;
+  line-height: 0.93617em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.212765em 0.6382em;
+  display: inline-block;
+  margin-top: 1.0638em;
+}
+@media (orientation: portrait) {
+  .front-view .container-inner .left-side .inner-content .btn {
+    font-size: 4.9375em;
+  }
+}
+.front-view .container-inner .right-side {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease 0.5s;
+  position: relative;
+  top: 0;
+}
+.front-view .container-inner .right-side.hide {
+  top: -20px;
+  visibility: hidden;
+  opacity: 0;
+}
+.front-view .container-inner .right-side .inner-content .btn {
+  font-family: "Nico Moji";
+  border: 0.06383em solid #000000;
+  border-radius: 65px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.9375em;
+  line-height: 0.93617em;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.212765em 0.6382em;
+  display: inline-block;
+  margin-top: 1.0638em;
+}
+@media (orientation: portrait) {
+  .front-view .container-inner .right-side .inner-content .btn {
+    font-size: 4.9375em;
+  }
+}
+
+.capabilities {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-height: 100vh;
+  overflow: auto;
+  visibility: hidden;
+  opacity: 0;
+}
+.capabilities .inner-container .title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10em;
+  line-height: 0.75em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 0.02em #fff;
+  font-family: "Nico Moji";
+  display: flex;
+  align-items: center;
+  padding: 0.03125em 0.1375em;
+}
+.capabilities .inner-container .title .back-to-front {
+  position: fixed;
+  top: 0.42553191em;
+  right: 0.42553191em;
+  z-index: 9;
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.29375em;
+  line-height: 0.93617021em;
+  text-transform: uppercase;
+  color: transparent;
+  text-decoration: none;
+  border: 0.06382979em solid #fff;
+  border-radius: 1em;
+  padding: 0.1em 0.7em;
+  font-weight: 200;
+  -webkit-text-stroke: 0.05em #fff;
+  text-shadow: 0.00425532em 0.00425532em 0.04255319em rgba(0, 0, 0, 0.5);
+  box-shadow: 0.00212766em 0.00212766em 0.10638298em #000;
+}
+.capabilities.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99;
+}
+
+.projects {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-height: 100vh;
+  overflow: auto;
+  visibility: hidden;
+  opacity: 0;
+}
+.projects .inner-container .title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10em;
+  line-height: 0.75em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 0.02em #000;
+  font-family: "Nico Moji";
+  display: flex;
+  align-items: center;
+  padding: 0.03125em 0.1375em;
+}
+.projects .inner-container .title .back-to-front {
+  position: fixed;
+  top: 0.42553191em;
+  right: 0.42553191em;
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.29375em;
+  line-height: 0.93617021em;
+  text-transform: uppercase;
+  color: transparent;
+  text-decoration: none;
+  border: 0.06382979em solid #000;
+  border-radius: 1em;
+  padding: 0.1em 0.7em;
+  font-weight: 200;
+  -webkit-text-stroke: 0.05em #000;
+  z-index: 9;
+}
+.projects.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99;
+}
+
+.capabilities .card-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3.125em 6.25em;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container {
+    display: block;
+  }
+}
+.capabilities .card-container .left-side {
+  flex: 0 0 50%;
+  width: 50%;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container .left-side {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+.capabilities .card-container .left-side img {
+  width: 52.375em;
+  height: 33.5em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  background: #FFFFFF;
+  border-radius: 2em;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container .left-side img {
+    width: 100%;
+    height: 70em;
+  }
+}
+.capabilities .card-container .right-side {
+  flex: 0 0 50%;
+  width: 50%;
+  text-align: center;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container .right-side {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+.capabilities .card-container .right-side .title-s {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5.625em;
+  color: transparent;
+  line-height: 1.41111em;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.02em #fff;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container .right-side .title-s {
+    font-size: 15.625em;
+  }
+}
+.capabilities .card-container .right-side .btn {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.9375em;
+  line-height: 0.93617em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: 0.0638298em solid #FFFFFF;
+  border-radius: 1.38297872em;
+  text-decoration: none;
+  padding: 0.10638298em 0.625em;
+}
+@media (orientation: portrait) {
+  .capabilities .card-container .right-side .btn {
+    font-size: 5.9375em;
+  }
+}
+.capabilities .card-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.projects .card-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3.125em 6.25em;
+}
+@media (orientation: portrait) {
+  .projects .card-container {
+    display: block;
+  }
+}
+.projects .card-container .left-side {
+  flex: 0 0 50%;
+  width: 50%;
+}
+@media (orientation: portrait) {
+  .projects .card-container .left-side {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+.projects .card-container .left-side img {
+  width: 52.375em;
+  height: 33.5em;
+  background: #F5B331;
+  border-radius: 2em;
+}
+@media (orientation: portrait) {
+  .projects .card-container .left-side img {
+    width: 100%;
+    height: 70em;
+  }
+}
+.projects .card-container .right-side {
+  flex: 0 0 50%;
+  width: 50%;
+  text-align: center;
+}
+@media (orientation: portrait) {
+  .projects .card-container .right-side {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+.projects .card-container .right-side .title-s {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5.625em;
+  color: transparent;
+  line-height: 1.41111em;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.02em #000;
+}
+@media (orientation: portrait) {
+  .projects .card-container .right-side .title-s {
+    font-size: 15.625em;
+  }
+}
+.projects .card-container .right-side .btn {
+  font-family: "Nico Moji";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.9375em;
+  line-height: 0.93617em;
+  text-transform: uppercase;
+  color: #000000;
+  border: 0.0638298em solid #000000;
+  border-radius: 1.38297872em;
+  text-decoration: none;
+  padding: 0.10638298em 0.625em;
+}
+@media (orientation: portrait) {
+  .projects .card-container .right-side .btn {
+    font-size: 5.9375em;
+  }
+}
+.projects .card-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.card-downa-animation-1 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.5s ease 0.1s;
+}
+.card-downa-animation-1.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.1s;
+}
+
+.card-downa-animation-2 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.5s ease 0.2s;
+}
+.card-downa-animation-2.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.2s;
+}
+
+.card-downa-animation-3 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.5s ease 0.3s;
+}
+.card-downa-animation-3.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.3s;
+}
+
+.card-downa-animation-4 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.5s ease 0.4s;
+}
+.card-downa-animation-4.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.4s;
+}
+
+.card-downa-animation-5 {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.5s ease 0.5s;
+}
+.card-downa-animation-5.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+  transition: all 0.5s ease 0.5s;
+}
+
+.about-me {
+  visibility: hidden;
+  opacity: 0;
+  max-width: 40vw;
+  margin-left: 6.25em;
+  position: relative;
+  top: -40px;
+  transition: all 0.5s ease;
+}
+.about-me .text-s {
+  font-family: "Salsa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 59.4032px;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 1em;
+}
+.about-me .contents {
+  font-family: "Salsa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27.4px;
+  line-height: 136%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 1em;
+}
+.about-me .icons {
+  margin-top: 2em;
+}
+.about-me.show {
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+}
+
+.contact-us {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -40px;
+  transition: all 0.5s ease;
+  margin-left: 6.25em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 4em;
+}
+.contact-us .contact_Form {
+  width: 1004px;
+  height: 479px;
+  border: 2px solid #FFFFFF;
+  border-radius: 20px;
+  padding: 35px;
+}
+.contact-us .contact_Form .field {
+  margin: 8px 0px;
+}
+.contact-us .contact_Form .field label {
+  font-family: "Salsa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27.4px;
+  line-height: 136%;
+  color: #FFFFFF;
+  width: 133px;
+  display: inline-block;
+}
+.contact-us .contact_Form .field input {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  box-shadow: none !important;
+  outline: none !important;
+  width: calc(100% - 133px);
+  font-size: 27.4px;
+  line-height: 136%;
+}
+.contact-us .contact_Form .field textarea {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 100%;
+  display: block;
+  min-height: 149px;
+  border-radius: 12px;
+  font-size: 27.4px;
+  padding: 5px 15px;
+}
+.contact-us .contact_Form input[type=submit] {
+  font-family: "Salsa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.6299px;
+  line-height: 136%;
+  text-transform: uppercase;
+  background-color: #FFFFFF;
+  color: #F5B331;
+  padding: 5px 20px;
+  border-radius: 25px;
+  border: none;
+  margin-top: 1em;
+}
+.contact-us.show {
+  visibility: visible;
+  opacity: 1;
+  top: 0px;
+}
+.contact-us .back-contact-us {
+  display: inline-block;
+  margin-top: 3em;
+}
+
+.max-height-0 {
+  max-height: 0;
+  overflow: hidden;
+}/*# sourceMappingURL=style.css.map */
