@@ -21,6 +21,9 @@ const aboutMeContainer = document.querySelector('.about-me');
 const contactUsLink = document.querySelector('.contact-us-link');
 const contactUsContainer = document.querySelector('.contact-us');
 const backContactUs = document.querySelector('.back-contact-us');
+const reviewsLink = document.querySelector('.review-link');
+const reviewsContainer = document.querySelector('.reviews');
+
 
 
 
@@ -192,3 +195,27 @@ backContactUs.addEventListener('click', function(e){
     }, 800);
 });
 
+//Review Link
+reviewsLink.addEventListener('click', function(e){
+    e.preventDefault();
+    downAnimationContainer.forEach(links => {
+        links.classList.toggle('visible');
+    });
+    reviewsContainer.classList.remove('max-height-0');
+    setTimeout(() => {
+        mainManuContainer.classList.add('max-height-0');
+        reviewsContainer.classList.add('show');
+    }, 1000);
+    
+});
+
+
+new Glider(document.querySelector('.glider'), {
+    slidesToShow: 1,
+    dots: '#dots',
+    draggable: true,
+    arrows: {
+      prev: '.glider-prev',
+      next: '.glider-next'
+    }
+  });

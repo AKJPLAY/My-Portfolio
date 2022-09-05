@@ -732,7 +732,7 @@ body {
 
 
 //Down Card Animation
-@for $i from 1 through 5 {
+@for $i from 1 through 8 {
     .card-downa-animation-#{$i} {
         position: relative;
         visibility: hidden;
@@ -866,6 +866,33 @@ body {
     .back-contact-us {
         display: inline-block;
         margin-top: 3em;
+    }
+}
+
+//Contact Us
+.reviews {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    top: -40px;
+    transition: all .5s ease;
+    margin-left: 6.25em;
+    width: max-content;
+    margin-top: 4em;
+    .slider {
+        max-width: 50em;
+        border: .1em solid #fff;
+        border-radius: 1em;
+        overflow: hidden;
+        display: flex;
+        .slide {
+            flex: 0 0 100%;
+        }
+    }
+    &.show {
+        visibility: visible;
+        opacity: 1;
+        top: 0px;
     }
 }
 
