@@ -210,12 +210,26 @@ reviewsLink.addEventListener('click', function(e){
 });
 
 
-new Glider(document.querySelector('.glider'), {
-    slidesToShow: 1,
-    dots: '#dots',
-    draggable: true,
-    arrows: {
-      prev: '.glider-prev',
-      next: '.glider-next'
+// Review Slide Changes
+let totalSlide = reviewsContainer.querySelectorAll('.slide').length;
+let currentIndex = 0;
+reviewsContainer.querySelector('.prev-arrow').addEventListener('click', function(){
+    currentIndex--;
+    if(currentIndex < 0){
+        currentIndex = 0;
     }
-  });
+    console.log('Index', currentIndex);
+    reviewsContainer.querySelectorAll('.slide').forEach(slide => {
+        slide.style.transform = 'translateX(' + currentIndex * -100 + '%)';
+    });
+});
+reviewsContainer.querySelector('.next-arrow').addEventListener('click', function(){
+    currentIndex++;
+    if(currentIndex > (totalSlide - 1)){
+        currentIndex = totalSlide - 1;
+    }
+    console.log('Index', currentIndex);
+    reviewsContainer.querySelectorAll('.slide').forEach(slide => {
+        slide.style.transform = 'translateX(' + currentIndex * -100 + '%)';
+    });
+});
