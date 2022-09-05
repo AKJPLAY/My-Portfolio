@@ -150,8 +150,8 @@ body {
     align-items: center;
     gap: 1.25em;
     .logo {
-        h2 {
-            font-family: 'Nico Moji';
+        h1 {
+            font-family: 'Salsa';
             font-style: normal;
             font-weight: 400;
             font-size: 6.25em;
@@ -159,7 +159,6 @@ body {
             text-align: center;
             text-transform: uppercase;
             color: #FFFFFF;
-            font-family: 'Nico Moji';
             // -webkit-text-stroke: 0.02em #000;
             text-shadow: 0.02em 0.02em 0.05em #000;
             @media (orientation: portrait) {
@@ -317,7 +316,7 @@ body {
         inset: 0;
         margin: auto;
         max-width: 37.0625em;
-        width: 100%;
+        width: 50vh;
         height: max-content;
         margin-right: 0;
         margin-bottom: 0;
@@ -326,6 +325,7 @@ body {
         transition: all .5s ease .5s;
         @media (orientation: portrait) {
             max-width: 80.0625em;
+            height: max-content;
         }
         &.visible {
             top: 0px;
