@@ -30,7 +30,7 @@ body {
 
 .main-background {
     clip-path: polygon(0 0, 55% 0, 40% 100%, 0% 100%);
-    background-color: #F5B331;
+    background-color: #01071A;
     position: fixed;
     inset: 0;
     width: 100%;
@@ -671,7 +671,7 @@ body {
                     height: 70em;
                 }
 
-                background: #F5B331;
+                background: #01071A;
                 border-radius: 2em;
             }
         }
@@ -841,7 +841,7 @@ body {
             line-height: 136%;
             text-transform: uppercase;
             background-color: #FFFFFF;
-            color: #F5B331;
+            color: #01071A;
             padding: 5px 20px;
             border-radius: 25px;
             border: none;
@@ -927,5 +927,19 @@ body {
     &.visible {
         visibility: visible;
         opacity: 1;
+    }
+}
+
+.go-back {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 3.125em;
+    width: 1.5625em;
+    height: 1.5625em;
+    cursor: pointer;
+    svg {
+        width: 100%;
+        height: auto;
+        fill: #FFFFFF;
     }
 }

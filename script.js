@@ -108,7 +108,7 @@ capabiltiesMainBtn.addEventListener('click', function(e){
     header.classList.toggle('hide');
     document.querySelector('body').classList.add(this.getAttribute('add-data-bg'));
     document.querySelector('body').classList.remove(this.getAttribute('remove-data-bg'));
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F5B331');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#01071A');
     frontViewContainer.classList.toggle('pointer-none');
 
     setTimeout(() => {
@@ -140,7 +140,7 @@ backToFrontBtns.forEach(btn => {
             document.querySelector('body').classList.remove('white');
         }, 1000);
         setTimeout(() => {
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F5B331');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#01071A');
         }, 1500)
     })
 })

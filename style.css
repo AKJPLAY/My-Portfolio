@@ -33,7 +33,7 @@ body {
 .main-background {
   -webkit-clip-path: polygon(0 0, 55% 0, 40% 100%, 0% 100%);
           clip-path: polygon(0 0, 55% 0, 40% 100%, 0% 100%);
-  background-color: #F5B331;
+  background-color: #01071A;
   position: fixed;
   inset: 0;
   width: 100%;
@@ -817,7 +817,7 @@ body {
 .projects .card-container .left-side img {
   width: 52.375em;
   height: 33.5em;
-  background: #F5B331;
+  background: #01071A;
   border-radius: 2em;
 }
 @media (orientation: portrait) {
@@ -1096,7 +1096,7 @@ body {
   line-height: 136%;
   text-transform: uppercase;
   background-color: #FFFFFF;
-  color: #F5B331;
+  color: #01071A;
   padding: 5px 20px;
   border-radius: 25px;
   border: none;
@@ -1177,4 +1177,18 @@ body {
 .manu-container.visible {
   visibility: visible;
   opacity: 1;
+}
+
+.go-back {
+  visibility: hidden;
+  opacity: 0;
+  font-size: 3.125em;
+  width: 1.5625em;
+  height: 1.5625em;
+  cursor: pointer;
+}
+.go-back svg {
+  width: 100%;
+  height: auto;
+  fill: #FFFFFF;
 }/*# sourceMappingURL=style.css.map */
