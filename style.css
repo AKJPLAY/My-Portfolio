@@ -311,7 +311,6 @@ body {
   margin: auto;
   max-width: 37.0625em;
   width: 50vh;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   margin-right: 0;
@@ -323,7 +322,6 @@ body {
 @media (orientation: portrait) {
   .header .profile-image {
     max-width: 80.0625em;
-    height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
   }
@@ -1042,7 +1040,6 @@ body {
   top: -40px;
   transition: all 0.5s ease;
   margin-left: 6.25em;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin-top: 4em;
@@ -1122,7 +1119,6 @@ body {
   top: -40px;
   transition: all 0.5s ease;
   margin-left: 6.25em;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin-top: 4em;
@@ -1172,4 +1168,13 @@ body {
 .max-height-0 {
   max-height: 0;
   overflow: hidden;
+}
+
+.manu-container {
+  visibility: hidden;
+  opacity: 0;
+}
+.manu-container.visible {
+  visibility: visible;
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

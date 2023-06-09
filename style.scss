@@ -920,3 +920,12 @@ body {
     max-height: 0;
     overflow: hidden;
 }
+
+.manu-container {
+    visibility: hidden;
+    opacity: 0;
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+}

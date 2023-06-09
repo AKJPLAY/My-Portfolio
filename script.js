@@ -23,6 +23,7 @@ const contactUsContainer = document.querySelector('.contact-us');
 const backContactUs = document.querySelector('.back-contact-us');
 const reviewsLink = document.querySelector('.review-link');
 const reviewsContainer = document.querySelector('.reviews');
+const reviewBackLink = document.querySelector('.back-reviews');
 
 
 
@@ -38,6 +39,7 @@ navigator.addEventListener('change', function(){
             addressLinksContainer.classList.toggle('visible');
             manuContainer.classList.toggle('visible');
             profileImage.classList.toggle('visible');
+            mainManuContainer.classList.toggle('visible');
             header.classList.toggle('set-max-height');
             downAnimationContainer.forEach(links => {
                 links.classList.toggle('visible');
@@ -59,6 +61,7 @@ navigator.addEventListener('change', function(){
         manuContainer.classList.toggle('visible');
         profileImage.classList.toggle('visible');
         header.classList.toggle('set-max-height');
+        mainManuContainer.classList.toggle('visible');
         
         downAnimationContainer.forEach(links => {
             links.classList.toggle('visible');
@@ -207,6 +210,18 @@ reviewsLink.addEventListener('click', function(e){
         reviewsContainer.classList.add('show');
     }, 1000);
     
+});
+
+reviewBackLink.addEventListener('click', function(e){
+    e.preventDefault();
+    reviewsContainer.classList.remove('show');
+    setTimeout(() => {
+        mainManuContainer.classList.remove('max-height-0');
+        downAnimationContainer.forEach(links => {
+            links.classList.toggle('visible');
+        });
+        reviewsContainer.classList.add('max-height-0');
+    }, 1000);
 });
 
 
